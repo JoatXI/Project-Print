@@ -1,2 +1,2 @@
 # Script-Kiddies
-AI personal assistant project
+Personal AI assistant project
