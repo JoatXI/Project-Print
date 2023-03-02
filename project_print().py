@@ -5,13 +5,18 @@ import pywhatkit
 import datetime
 import pyjokes
 import selenium
+import random
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty("voices")
 engine.setProperty("voice", voices[1].id)
 
-wake_commands = ["hello print", "are you there print?", "print, are you there?", "okay print", "hey print", "excuse me print", "yo print", "do you have a moment print?", "can you help me with this print?", "can you help me out with this print?", "print, can you help me with this?", "print, can you help me out with this?", "what's up print?", "print, what's up?" "check this out print", "print, check this out", "can you listen to this print?", "print, can you listen to this?", "listen to this print", "print, listen to this"]
+wake_commands = ["hello print", "are you there print", "print are you there", "okay print", "hey print", "excuse me print", "yo print", "do you have a moment print", "can you help me with this print", "can you help me out with this print", "print, can you help me with this", "print can you help me out with this", "what's up print", "print what's up" "check this out print", "print check this out", "can you listen to this print", "print can you listen to this", "listen to this print", "print listen to this"]
+
+wake_response = ["hello, how may I help you", "hello, what's up", "hi, how can I help you?", "hello, what do you need?"]
+
+unknown_command_response = ["sorry, I did not get that", "sorry, can you repeat that?", "I didn't hear that clearly", "say that again please", "beg your pardon, could you repeat that?", "that was unclear, can you speak more clearly?"]
 
 def speak(text):
     engine.say(text)
@@ -31,8 +36,14 @@ def taking_voice_commands():
         pass
     return command
 
-def print_run():
-    command = taking_voice_commands()
-    print(command)
-    if command in wake_commands:
-        pass
+def run_print():
+    voice_command = taking_voice_commands()
+    print(voice_command)
+    if voice_command in wake_commands:
+        speak(random.choice(wake_response))
+        voice_command = taking_voice_commands()
+    else:
+        speak(random.choice(unknown_command_response))
+        
+while True:
+    run_print()
