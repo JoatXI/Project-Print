@@ -44,6 +44,17 @@ def run_print():
         info = wikipedia.summary(question, 1)
         print(info)
         speak(info)
+    elif "play" in voice_command:
+        sound = voice_command.replace('play', '')
+        speak('playing' + sound)
+        pywhatkit.playonyt(sound)
+    elif 'time' in voice_command:
+        time = datetime.datetime.now().strftime('%H:%M')
+        speak("The time is" + time)
+    elif 'joke' in voice_command:
+        speak(pyjokes.get_joke())
+    else:
+        speak('sorry I did not get that')
         
 def wake_mode():
     try:
