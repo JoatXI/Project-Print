@@ -46,14 +46,24 @@ def run_print():
         print(info)
         
 def wake_mode():
-    voice_alert = taking_voice_commands()
-    print(voice_alert)
-    if voice_alert in wake_commands:
+    try:
+        with sr.Microphone() as voice_source:
+            print("listening in wake mode...")
+            voice = listener.listen(voice_source)
+            alert_command = listener.recognize_google(voice)
+            alert_command = alert_command.lower()
+    except:
+        pass
+    
+    #voice_alert = taking_voice_commands()
+    print(alert_command)
+    if alert_command in wake_commands:
         speak(random.choice(wake_response))
-        #run_print()
+        run_print()
         print("that is all")
     else:
         speak(random.choice(unknown_command_response))
+    return alert_command
       
         
 while True:
