@@ -6,13 +6,14 @@ import datetime
 import pyjokes
 import selenium
 import random
+import time
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty("voices")
 engine.setProperty("voice", voices[1].id)
 
-wake_commands = ["hello print", "are you there print", "print are you there", "ok print", "hey print", "excuse me print", "yo print", "do you have a moment print", "can you help me with this print", "can you help me out with this print", "print, can you help me with this", "print can you help me out with this", "what's up print", "print what's up" "check this out print", "print check this out", "can you listen to this print", "print can you listen to this", "listen to this print", "print listen to this"]
+wake_commands = ["hello print", "are you there print", "print are you there", "ok print", "hey print", "excuse me print", "yo print", "do you have a moment print", "can you help me with this print", "can you help me out with this print", "print, can you help me with this", "print can you help me out with this", "what's up print", "print what's up" "check this out print", "print check this out", "can you listen to this print", "print can you listen to this", "listen to this print", "print listen to this", "wake up print", "print wake up"]
 
 wake_response = ["hello, how may I help you", "hello, what's up", "hi, how can I help you?", "hello, what do you need?"]
 
@@ -29,9 +30,7 @@ def taking_voice_commands():
             voice = listener.listen(source)
             command = listener.recognize_google(voice)
             command = command.lower()
-            #if "print" in command: # print() being the name of this AI (Note: should progamme AI with the abililty to change it's name through user command)
-                #command = command.replace("print", "")
-                #speak(command)
+# print() being the name of this AI (Note: should progamme AI with the abililty to change it's name through user command)
     except:
         pass
     return command
@@ -41,9 +40,10 @@ def run_print():
     print(voice_command)
     if 'google' in voice_command:
         question = voice_command.replace('google', '')
+        #question = voice_command
         info = wikipedia.summary(question, 1)
-        speak(info)
         print(info)
+        speak(info)
         
 def wake_mode():
     try:
@@ -59,8 +59,8 @@ def wake_mode():
     print(alert_command)
     if alert_command in wake_commands:
         speak(random.choice(wake_response))
-        run_print()
-        print("that is all")
+        while True:
+            run_print()
     else:
         speak(random.choice(unknown_command_response))
     return alert_command
