@@ -7,13 +7,14 @@ import pyjokes
 import selenium
 import random
 import time
+import pyautogui
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
 voices = engine.getProperty("voices")
 engine.setProperty("voice", voices[1].id)
 
-wake_commands = ["hello print", "are you there print", "print are you there", "ok print", "hey print", "excuse me print", "yo print", "do you have a moment print", "can you help me with this print", "can you help me out with this print", "print, can you help me with this", "print can you help me out with this", "what's up print", "print what's up" "check this out print", "print check this out", "can you listen to this print", "print can you listen to this", "listen to this print", "print listen to this", "wake up print", "print wake up"]
+wake_commands = ["hello Joat", "are you there Joat", "Joat are you there", "ok Joat", "hey Joat", "excuse me Joat", "yo Joat", "do you have a moment Joat", "can you help me with this Joat", "can you help me out with this Joat", "Joat, can you help me with this", "Joat can you help me out with this", "what's up Joat", "Joat what's up" "check this out Joat", "Joat check this out", "can you listen to this Joat", "Joat can you listen to this", "listen to this Joat", "Joat listen to this", "wake up Joat", "Joat wake up"]
 
 wake_response = ["hello, how may I help you", "hello, what's up", "hi, how can I help you?", "hello, what do you need?"]
 
@@ -35,7 +36,7 @@ def taking_voice_commands():
         pass
     return command
 
-def run_print():
+def run_joat():
     voice_command = taking_voice_commands()
     print(voice_command)
     if 'google' in voice_command:
@@ -71,7 +72,7 @@ def wake_mode():
     if alert_command in wake_commands:
         speak(random.choice(wake_response))
         while True:
-            run_print()
+            run_joat()
     else:
         speak(random.choice(unknown_command_response))
     return alert_command

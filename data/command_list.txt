@@ -1,20 +1,20 @@
-hello print
-are you there print?
-print, are you there?
-okay print
-hey print
-excuse me print
-yo print
-do you have a moment print?
-can you help me with this print?
-can you help me out with this print?
-print, can you help me with this?
-print, can you help me out with this?
-what's up print?
-print, what's up?
-check this out print
-print, check this out
-can you listen to this print?
-print, can you listen to this?
-listen to this print
-print, listen to this
+hello Joat
+are you there Joat?
+Joat, are you there?
+okay Joat
+hey Joat
+excuse me Joat
+yo Joat
+do you have a moment Joat?
+can you help me with this Joat?
+can you help me out with this Joat?
+Joat, can you help me with this?
+Joat, can you help me out with this?
+what's up Joat?
+Joat, what's up?
+check this out Joat
+Joat, check this out
+can you listen to this Joat?
+Joat, can you listen to this?
+listen to this Joat
+Joat, listen to this
