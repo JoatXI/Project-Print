@@ -5,6 +5,7 @@ import pywhatkit
 import datetime
 import pyjokes
 import random
+import webbrowser
 import time
 import pyautogui
 import selenium
@@ -58,6 +59,9 @@ def run_print():
         speak("The time is" + time)
     elif 'joke' in voice_command:
         speak(pyjokes.get_joke())
+    elif search_queries in voice_command:
+        search =voice_command.replace(search_queries, '')
+        webbrowser.open('https://www.google.com/search?q=' + search)
     else:
         speak(random.choice(unknown_command_response))
         
