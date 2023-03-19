@@ -8,7 +8,6 @@ import random
 import webbrowser
 import time
 import pyautogui
-import selenium
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
